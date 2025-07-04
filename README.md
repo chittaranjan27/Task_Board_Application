@@ -1,4 +1,4 @@
-🗂️ Task Board Application (v1.0)
+🗂️ Task Board Application 
 
 A modern task management board (Trello-like) built with **React**, **TypeScript**, **Tailwind CSS**, and **@dnd-kit** for drag-and-drop support.
 
@@ -32,7 +32,7 @@ A modern task management board (Trello-like) built with **React**, **TypeScript*
 
 git clone https://github.com/chittaranjan27/Task_Board_Application.git
 
-cd task-board
+cd Task_Board_Application
 
 2. Install Dependencies
 
@@ -49,8 +49,10 @@ yarn dev
 Now open your browser at http://localhost:5173
 
 📁 Project Structure
+
 src/
-├── components/       # UI and logic components
+
+├── components/   # UI and logic components
 │   ├── Column/
 │   ├── Task/
 │   └── UI/
@@ -64,22 +66,24 @@ src/
 
 
 🔧 Tailwind Setup
-tailwind.config.js
 
+tailwind.config.js
 js
 content: [
   "./index.html",
   "./src/**/*.{js,ts,jsx,tsx}"
 ],
-index.css
 
+index.css
 css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 🧪 Common Commands
+
 Command	Description
+
 npm run dev	                  Start the development server
-npm run build	              Create optimized production build
+npm run build	                Create optimized production build
 npm run preview	              Preview production build locally
