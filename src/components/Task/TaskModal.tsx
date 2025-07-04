@@ -123,7 +123,6 @@ export const TaskModal: React.FC<TaskModalProps> = ({ isOpen, onClose, task, col
           value={formData.dueDate}
           onChange={(e) => setFormData({ ...formData, dueDate: e.target.value })}
           required
-          min={new Date().toISOString().split('T')[0]} // Prevent past dates
         />
 
         <div className="flex justify-end space-x-3 pt-2">
