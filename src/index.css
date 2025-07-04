@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --scrollbar-track: theme('colors.gray.100');
+    --scrollbar-thumb: theme('colors.gray.300');
+    --scrollbar-thumb-hover: theme('colors.gray.400');
+  }
+
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-[var(--scrollbar-track)] rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-[var(--scrollbar-thumb)] rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-[var(--scrollbar-thumb-hover)];
+  }
+
+  /* Smooth transitions for dark mode */
+  html.dark {
+    --scrollbar-track: theme('colors.gray.800');
+    --scrollbar-thumb: theme('colors.gray.600');
+    --scrollbar-thumb-hover: theme('colors.gray.500');
+  }
+
+  /* Focus styles */
+  [type="text"]:focus,
+  [type="email"]:focus,
+  [type="url"]:focus,
+  [type="password"]:focus,
+  [type="number"]:focus,
+  [type="date"]:focus,
+  [type="datetime-local"]:focus,
+  [type="month"]:focus,
+  [type="search"]:focus,
+  [type="tel"]:focus,
+  [type="time"]:focus,
+  [type="week"]:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
+    @apply outline-none ring-2 ring-offset-2 ring-blue-500/50;
+  }
+
+  /* Smooth transitions */
+  * {
+    @apply transition-colors motion-reduce:transition-none;
+    transition-duration: 200ms;
+  }
+
+  /* Better selection styling */
+  ::selection {
+    @apply bg-blue-500 text-white;
+  }
+}
+
+@layer components {
+  /* Enhanced line clamp */
+  .line-clamp-2 {
+    @apply overflow-hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .line-clamp-3 {
+    @apply overflow-hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Drag and drop styles */
+  .sortable-ghost {
+    @apply opacity-50 bg-gray-100 dark:bg-gray-700;
+  }
+
+  .sortable-chosen {
+    @apply transform rotate-2 shadow-lg;
+  }
+
+  .sortable-drag {
+    @apply opacity-0;
+  }
+
+  /* Responsive utilities */
+  .mobile-scroll {
+    @apply overflow-x-auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .mobile-scroll::-webkit-scrollbar {
+    @apply hidden; /* Hide scrollbar for Chrome/Safari */
+  }
+
+  /* Custom animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 150ms ease-out;
+  }
+
+  /* Custom shadows */
+  .shadow-xs {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+
+  .shadow-card {
+    box-shadow: 0 2px 8px -1px rgb(0 0 0 / 0.1);
+  }
+}
+
+@layer utilities {
+  /* Text truncation */
+  .text-ellipsis {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+
+  /* For Firefox scrollbar styling */
+  @supports (scrollbar-color: auto) {
+    * {
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+      scrollbar-width: thin;
+    }
+  }
+}
